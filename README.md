@@ -12,35 +12,42 @@ $ meteor add rosh93:slide-panel
 
 Call these methods from anywhere in your app
 
-#### Open a panel
+### Open a panel
+
 ```javascript
 slidePanel.showPanel(template, data);
 ```
 `template` should be a template object: `Template.myTemplate`
+
 `data` is the optional context on the template
 
 The template `created` and `rendered` hooks will be called when the panel is shown
 
 ### On Close hook for the current panel
+
 ```javascript
 slidePanel.onClose(function() {
   // do some stuff once the panel is closed
 });
 ```
 `onClose` Can be called multiple times after `showPanel` is called
+
 Each function passed to `onClose` will be run after the open panel is closed
 
 ### Close the open panel
+
 ```javascript
 slidePanel.closePanel();
 ```
 All `onClose` hooks will be run
+
 Template `destroyed` hook of the closed template will run
 
 
 ## Example Setup
 
 Include `{{> slidePanel}}`
+
 You should only include `{{> slidePanel}}` once in your app
 
 ### Iron router example setup:
@@ -81,8 +88,11 @@ Template.confirm.rendered = function() {
 
   // Setup an on close handler
   slidePanel.onClose(function() {
-    Session.set('confirmed', self.data._id);
+    // Fun stuff
   });
+}
+Template.confirm.destroyed = function() {
+  // Can do some cleanup in here
 }
 ```
 
@@ -91,9 +101,15 @@ Template.confirm.rendered = function() {
 Template.exampleTemplate.events({
   'click': function(event, temp) {
     slidePanel.showPanel(Template.confirm, temp.data);
+    
+    // Setup an on close handler
+    slidePanel.onClose(function() {
+      temp.confirmedVar = true;
+    });
   }
 });
 ```
 
 ## Customization
+
 Override the styles in `slidepanel.css`
