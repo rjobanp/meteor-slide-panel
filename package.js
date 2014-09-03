@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   api.use('deps');
   api.use('templating');
 
-  api.use('iron:dynamic-template');
+  api.use('iron:dynamic-template@0.3.0');
 
   api.versionsFrom('METEOR@0.9.0.1');
   api.addFiles(['slidepanel.js', 'slidepanel_template.html', 'slidepanel_template.js', 'slidepanel.css'], ['client']);
