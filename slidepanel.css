@@ -1,0 +1,32 @@
+.slide-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  z-index: 50000;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  overflow: hidden;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -ms-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+.slide-panel.slide-in {
+  left: 0;
+}
+.slide-panel .close-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 32px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+body {
+  overflow-x: hidden;
+}
