@@ -9,10 +9,13 @@ Template.slidePanel.destroyed = function() {
 }
 Template.slidePanel.helpers({
   dynamicTemp: function() {
-    return slidePanel.template()
+    return slidePanel.template();
   },
   dynamicData: function() {
-    return slidePanel.data()
+    return slidePanel.data();
+  },
+  overlay: function() {
+    return slidePanel.overlay();
   }
 });
 Template.slidePanel.events({

@@ -43,6 +43,15 @@ All `onClose` hooks will be run
 
 Template `destroyed` hook of the closed template will run
 
+### Enable the overlay
+
+```javascript
+slidePanel.overlay(true); // default 'false'
+```
+Call this once within your app to enable the overlay option on your panels
+
+This is useful on higher resolution screens when the panel doesn't cover the entire width, as it disables access to the content underneath
+
 
 ## Example Setup
 

@@ -11,6 +11,7 @@ SlidePanel = function() {
 
   this._onClose = [];
 
+  this._overlay = new Blaze.ReactiveVar(false);
   this._template = new Blaze.ReactiveVar(null);
   this._data = new Blaze.ReactiveVar({});
 }
@@ -28,6 +29,14 @@ SlidePanel.prototype.data = function(data) {
     return this._data.set(data);
   } else {
     return this._data.get();
+  }
+}
+
+SlidePanel.prototype.overlay = function(overlay) {
+  if ( overlay !== undefined ) {
+    return this._overlay.set(overlay);
+  } else {
+    return this._overlay.get();
   }
 }
 
@@ -65,18 +74,19 @@ SlidePanel.prototype.closePanel = function() {
 }
 
 SlidePanel.prototype.slideIn = function() {
-  this.slidePanelTemp.$('.slide-panel').addClass('slide-in');
+  this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').addClass('slide-in');
   this._inView = true;
 }
 
 SlidePanel.prototype.slideOut = function() {
-  this.slidePanelTemp.$('.slide-panel').removeClass('slide-in');
+  this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').removeClass('slide-in');
   this._inView = false;
 }
 
 SlidePanel.prototype.remove = function() {
   this._currentTemplate = null;
   this._currentData = null;
+  this._overlay = null;
   this.removed = true;
 }
 
