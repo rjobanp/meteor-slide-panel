@@ -11,9 +11,9 @@ SlidePanel = function() {
 
   this._onClose = [];
 
-  this._overlay = new Blaze.ReactiveVar(false);
-  this._template = new Blaze.ReactiveVar(null);
-  this._data = new Blaze.ReactiveVar({});
+  this._overlay = new ReactiveVar(false);
+  this._template = new ReactiveVar(null);
+  this._data = new ReactiveVar({});
 }
 
 SlidePanel.prototype.template = function(template) {
@@ -68,7 +68,7 @@ SlidePanel.prototype.closePanel = function() {
   this.data(null);
   this.slideOut();
   this.onClose().forEach(function(func) {
-    Deps.afterFlush(func);
+    Tracker.afterFlush(func);
   });
   this._onClose = [];
 }
