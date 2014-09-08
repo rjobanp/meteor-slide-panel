@@ -1,9 +1,7 @@
 <template name="slidePanel">
   <div class="slide-panel">
     <div class="close-panel">&times;</div>
-    {{#DynamicTemplate template=dynamicTemp data=dynamicData}}
-    
-    {{/DynamicTemplate}}
+    {{> UI.dynamic template=dynamicTemp data=dynamicData}}
   </div>
   {{#if overlay}}
     <div class="slide-panel-overlay"></div>

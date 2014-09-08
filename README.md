@@ -17,7 +17,7 @@ Call these methods from anywhere in your app
 ```javascript
 slidePanel.showPanel(template, data);
 ```
-`template` should be a template object: `Template.myTemplate`
+`template` should be the name of an existing template `myTemplate`
 
 `data` is the optional context on the template
 
@@ -109,7 +109,7 @@ Template.confirm.destroyed = function() {
 ```javascript
 Template.exampleTemplate.events({
   'click': function(event, temp) {
-    slidePanel.showPanel(Template.confirm, temp.data);
+    slidePanel.showPanel('confirm', temp.data);
     
     // Setup an on close handler
     slidePanel.onClose(function() {
