@@ -1,7 +1,8 @@
-body {
+html, body {
   overflow-x: hidden;
 }
 .slide-panel {
+  display: none;
   position: absolute;
   top: 0;
   right: -100%;
@@ -13,11 +14,14 @@ body {
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   overflow: hidden;
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  -moz-transition: all .25s ease-in-out;
-  -ms-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
+  -webkit-transition: all .15s ease-in-out;
+  -o-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  -ms-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+}
+.slide-panel.show-panel {
+  display: block;
 }
 .slide-panel.slide-in {
   right: 0;
@@ -39,11 +43,11 @@ body {
   right: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 5999;
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  -moz-transition: all .25s ease-in-out;
-  -ms-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
+  -webkit-transition: all .15s ease-in-out;
+  -o-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  -ms-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 .slide-panel-overlay.slide-in {
   display: block;

@@ -1,5 +1,5 @@
 <template name="slidePanel">
-  <div class="slide-panel">
+  <div class="slide-panel {{#if dynamicTemp}}show-panel{{/if}}">
     <div class="close-panel">&times;</div>
     {{> UI.dynamic template=dynamicTemp data=dynamicData}}
   </div>

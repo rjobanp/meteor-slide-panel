@@ -4,6 +4,7 @@ SlidePanel = function() {
   }
 
   this.slidePanelTemp = null;
+  this.clearTimeout = null;
   this.inserted = false;
   this.removed = false;
 
@@ -57,20 +58,29 @@ SlidePanel.prototype.showPanel = function(template, data) {
     this.closePanel();
   }
 
+  if ( this.clearTimeout ) {
+    Meteor.clearTimeout(this.clearTimeout);
+    this.clearTimeout = null;
+  }
+
   this.template(template);
   this.data(data);
 
-  this.slideIn();
+  Meteor.setTimeout(this.slideIn.bind(this), 150);
 }
 
 SlidePanel.prototype.closePanel = function() {
-  this.template(null);
-  this.data(null);
   this.slideOut();
+
   this.onClose().forEach(function(func) {
     Tracker.afterFlush(func);
   });
   this._onClose = [];
+
+  this.clearTimeout = Meteor.setTimeout(function() {
+    this.template(null);
+    this.data(null);
+  }.bind(this), 150);
 }
 
 SlidePanel.prototype.slideIn = function() {

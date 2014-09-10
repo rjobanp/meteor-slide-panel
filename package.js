@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Dynamic slide panel for meteor. Replacement for modals on responsive sites.",
-  version: "0.1.0",
+  version: "0.1.1",
   git: "https://github.com/rosh93/meteor-slide-panel"
 });
 
