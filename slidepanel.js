@@ -7,6 +7,8 @@ SlidePanel = function() {
   this.clearTimeout = null;
   this.inserted = false;
   this.removed = false;
+  this.fixScrollPosition = true;
+  this._lastScrollTop = 0;
 
   this._inView = false;
 
@@ -85,11 +87,18 @@ SlidePanel.prototype.closePanel = function() {
 
 SlidePanel.prototype.slideIn = function() {
   this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').addClass('slide-in');
+  if ( this.fixScrollPosition ) {
+    this._lastScrollTop = document.body.scrollTop || 0;
+    document.body.scrollTop = 0;
+  }
   this._inView = true;
 }
 
 SlidePanel.prototype.slideOut = function() {
   this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').removeClass('slide-in');
+  if ( this.fixScrollPosition && this._lastScrollTop ) {
+    document.body.scrollTop = this._lastScrollTop;
+  }
   this._inView = false;
 }
 
