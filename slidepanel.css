@@ -5,7 +5,12 @@ html, body {
   display: none;
   position: absolute;
   top: 0;
-  right: -100%;
+  right: 0;
+  -webkit-transform: translate(100%, 0);
+  -o-transform: translate(100%, 0);
+  -moz-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  transform: translate(100%, 0);
   min-height: 100%;
   width: 100%;
   max-width: 600px;
@@ -14,17 +19,22 @@ html, body {
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   overflow: hidden;
-  -webkit-transition: all .15s ease-in-out;
-  -o-transition: all .15s ease-in-out;
-  -moz-transition: all .15s ease-in-out;
-  -ms-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
+  -webkit-transition: .15s ease-in-out;
+  -o-transition: .15s ease-in-out;
+  -moz-transition: .15s ease-in-out;
+  -ms-transition: .15s ease-in-out;
+  transition: .15s ease-in-out;
+  will-change: transform;
 }
 .slide-panel.show-panel {
   display: block;
 }
 .slide-panel.slide-in {
-  right: 0;
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 .slide-panel .close-panel {
   position: absolute;
