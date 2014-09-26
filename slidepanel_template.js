@@ -19,7 +19,7 @@ Template.slidePanel.helpers({
   }
 });
 Template.slidePanel.events({
-  'click .close-panel': function() {
+  'click .close-panel, click .slide-panel-overlay': function() {
     slidePanel.closePanel();
-  }                                                                                                     // 25
-}); 
+  }
+});
