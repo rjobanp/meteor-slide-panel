@@ -88,8 +88,8 @@ SlidePanel.prototype.closePanel = function() {
 SlidePanel.prototype.slideIn = function() {
   this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').addClass('slide-in');
   if ( this.fixScrollPosition ) {
-    this._lastScrollTop = document.body.scrollTop || 0;
-    document.body.scrollTop = 0;
+    this._lastScrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
   }
   this._inView = true;
 }
@@ -97,7 +97,7 @@ SlidePanel.prototype.slideIn = function() {
 SlidePanel.prototype.slideOut = function() {
   this.slidePanelTemp.$('.slide-panel, .slide-panel-overlay').removeClass('slide-in');
   if ( this.fixScrollPosition && this._lastScrollTop ) {
-    document.body.scrollTop = this._lastScrollTop;
+    document.documentElement.scrollTop = document.body.scrollTop = this._lastScrollTop;
   }
   this._inView = false;
 }
