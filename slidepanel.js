@@ -6,7 +6,6 @@ SlidePanel = function() {
   this.slidePanelTemp = null;
   this.clearTimeout = null;
   this.inserted = false;
-  this.removed = false;
   this.fixScrollPosition = true;
   this._lastScrollTop = 0;
 
@@ -100,13 +99,6 @@ SlidePanel.prototype.slideOut = function() {
     document.documentElement.scrollTop = document.body.scrollTop = this._lastScrollTop;
   }
   this._inView = false;
-}
-
-SlidePanel.prototype.remove = function() {
-  this._currentTemplate = null;
-  this._currentData = null;
-  this._overlay = null;
-  this.removed = true;
 }
 
 slidePanel = new SlidePanel();

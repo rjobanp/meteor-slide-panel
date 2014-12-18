@@ -5,7 +5,7 @@ Template.slidePanel.rendered = function() {
   slidePanel.inserted = true;
 }
 Template.slidePanel.destroyed = function() {
-  slidePanel.remove();
+  slidePanel.inserted = false;
 }
 Template.slidePanel.helpers({
   dynamicTemp: function() {
